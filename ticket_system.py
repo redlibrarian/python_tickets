@@ -47,7 +47,10 @@ def create_ticket():
   tickets.append(ticket.Ticket(user, issue))
 
 def assign_ticket():
-  print("Assigning ticket...")
+  # display agent list
+  # display ticket list
+  # with agent name and ticket ID how to I assign a ticket to the agent's queue?
+  # list_tickets should display the assigned agent.
 
 def toggle_ticket_status():
   print("Changing ticket status to...")
