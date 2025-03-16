@@ -1,3 +1,6 @@
+import agent
+import ticket
+
 # What does a ticket system need to do
 
 # Create Agent
@@ -8,18 +11,40 @@
 # Maintain Ticket Queue
 # Send notification on ticket assignment or note addition (to assigned agent, if no assigned agent, error)
 
+# List agents
+# List tickets
+
 # This can be a DOS-tyle menu system for now.
+
+agents = []
+tickets = []
 
 def get_choice():
   print("What would you like to do?")
-  print("1: Create Agent 2: Create Ticket 3: Assign Ticket 4: Close/Reopen Ticket 5: Add Note to Ticket 9: Quit")
+  print("1: Create Agent 2: Create Ticket 3: Assign Ticket 4: Close/Reopen Ticket 5: Add Note to Ticket 6: List Agents 7: List Tickets 9: Quit")
   return int(input("Choice: "))
 
 def create_agent():
-  print("Creating agent...")
+  print("Create Agent.")
+  name = input("Enter agent name: ")
+  department = input("Enter agent department: ")
+  agents.append(agent.Agent(name, department))
+
+def list_agents():
+  print("Agents in system: ")
+  for agent in agents:
+    print(agent)
+
+def list_tickets():
+  print("Tickets in system: ")
+  for ticket in tickets:
+    print(ticket)
 
 def create_ticket():
-  print("Creating ticket...")
+  print("Create ticket: ")
+  user = input("Uset Name: ")
+  issue = input("What is the issue? ")
+  tickets.append(ticket.Ticket(user, issue))
 
 def assign_ticket():
   print("Assigning ticket...")
@@ -37,10 +62,10 @@ def main():
     match option:
       case 1:
         create_agent()
-        break # Just until I've added real logic
+        option = get_choice()
       case 2:
         create_ticket()
-        break
+        option = get_choice()
       case 3:
         assign_ticket()
         break
@@ -50,6 +75,12 @@ def main():
       case 5:
         add_note_to_ticket()
         break
+      case 6:
+        list_agents()
+        option = get_choice()
+      case 7: 
+        list_tickets()
+        option = get_choice()
       case 9: 
         break
       case _:
