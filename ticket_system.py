@@ -49,6 +49,7 @@ def create_ticket():
   tickets.append(ticket.Ticket(user, issue))
 
 def assign_ticket():
+  pass
   # display agent list
   # display ticket list
   # with agent name and ticket ID how to I assign a ticket to the agent's queue?
@@ -95,4 +96,3 @@ def main():
 
 if __name__ == '__main__':
   main()
-

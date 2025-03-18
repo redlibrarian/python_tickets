@@ -12,8 +12,8 @@ class Ticket:
     return f"Ticket {self.id}: User: {self.user}, Status: {self.status}, Issue: {self.issue}"
 
   def fetch_notes(self):
-    for index, note in enumerate(self.notes):
-      print(f"{index}. {note}")
+    note_strings = {index: note for index, note in enumerate(self.notes)}
+    return note_strings
 
   def add_note(self, note):
     self.notes.append(note)
