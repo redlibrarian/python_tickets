@@ -16,6 +16,8 @@ import ticket
 
 # This can be a DOS-tyle menu system for now.
 
+# Use sqlite3 instead of KSON serialisization?
+
 agents = []
 tickets = []
 
