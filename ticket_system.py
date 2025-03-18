@@ -1,23 +1,6 @@
 import agent
 import ticket
 
-# What does a ticket system need to do
-
-# Create Agent
-# Create Ticket
-# Assign Ticket
-# Close/Reopen Ticket
-# Add note to Ticket
-# Maintain Ticket Queue
-# Send notification on ticket assignment or note addition (to assigned agent, if no assigned agent, error)
-
-# List agents
-# List tickets
-
-# This can be a DOS-tyle menu system for now.
-
-# Use sqlite3 instead of KSON serialisization?
-
 agents = []
 tickets = []
 
