@@ -4,4 +4,4 @@ Classes:
 Ticket (able to be passed around between different agents)
 Agent
 
-Should serialize to JSON, possibly send email notifications.:
+Should serialize to JSON or sqlite, possibly send email notifications.:
