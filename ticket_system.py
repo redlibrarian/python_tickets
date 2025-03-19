@@ -1,6 +1,8 @@
 import agent
 import ticket
 
+# Move all state into the TicketSystem class and all interaction (print, input) out into a mainfile that doesn't have to be a class.
+
 class TicketSystem:
 
     agents = []
