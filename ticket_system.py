@@ -66,7 +66,7 @@ def main():
         option = get_choice()
       case 3:
         assign_ticket()
-        break
+        option = get_choice()
       case 4:
         toggle_ticket_status()
         break
