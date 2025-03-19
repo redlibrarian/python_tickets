@@ -6,7 +6,8 @@ tickets = []
 
 def get_choice():
   print("What would you like to do?")
-  print("1: Create Agent 2: Create Ticket 3: Assign Ticket 4: Close/Reopen Ticket 5: Add Note to Ticket 6: List Agents 7: List Tickets 9: Quit")
+  print("1: Create Agent\n2: Create Ticket\n3: Assign Ticket\n4: Close/Reopen Ticket\n5: Add Note to Ticket\n6: List Agents\n7: List Tickets\n9: Quit")
+  print()
   return int(input("Choice: "))
 
 def create_agent():
@@ -17,13 +18,13 @@ def create_agent():
 
 def list_agents():
   print("Agents in system: ")
-  for agent in agents:
-    print(agent)
+  for index, agent in enumerate(agents):
+    print(index, agent)
 
 def list_tickets():
   print("Tickets in system: ")
-  for ticket in tickets:
-    print(ticket)
+  for index, ticket in enumerate(tickets):
+    print(index, ticket)
 
 def create_ticket():
   print("Create ticket: ")
@@ -31,12 +32,20 @@ def create_ticket():
   issue = input("What is the issue? ")
   tickets.append(ticket.Ticket(user, issue))
 
+def display_system_state():
+  print("Tickets:\n")
+  list_tickets()
+  print()
+  print("Agents:\n")
+  list_agents()
+
 def assign_ticket():
-  pass
-  # display agent list
-  # display ticket list
-  # with agent name and ticket ID how to I assign a ticket to the agent's queue?
-  # list_tickets should display the assigned agent.
+  display_system_state()
+  ticket = int(input("Enter ticket #: "))
+  agent = int(input("Enter agent #: "))
+  agents[agent].assign_ticket(tickets[ticket])
+  print("Updated assignments:\n")
+  display_system_state()
 
 def toggle_ticket_status():
   print("Changing ticket status to...")
