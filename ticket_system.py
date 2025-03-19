@@ -2,6 +2,7 @@ import agent
 import ticket
 
 class TicketSystem:
+
     agents = []
     tickets = []
 
@@ -14,29 +15,39 @@ class TicketSystem:
         print()
         return int(input("Choice: "))
 
-    def create_agent():
+    def create_agent(self, name=None, department=None):
         print("Create Agent.")
-        name = input("Enter agent name: ")
-        department = input("Enter agent department: ")
-        agents.append(agent.Agent(name, department))
+        if not name and not department:
+          name = input("Enter agent name: ")
+          department = input("Enter agent department: ")
+        self.agents.append(agent.Agent(name, department))
 
-    def list_agents():
-        print("Agents in system: ")
-        for index, agent in enumerate(agents):
-            print(index, agent)
-
-    def list_tickets():
-        print("Tickets in system: ")
-        for index, ticket in enumerate(tickets):
-            print(index, ticket)
-
-    def create_ticket():
+    def create_ticket(self, name=None, issue=None ):
         print("Create ticket: ")
-        user = input("Uset Name: ")
-        issue = input("What is the issue? ")
-        tickets.append(ticket.Ticket(user, issue))
+        if not name and not issue:
+          user = input("User Name: ")
+          issue = input("What is the issue? ")
+        self.tickets.append(ticket.Ticket(name, issue))
 
-    def display_system_state():
+    def list_agents(self):
+        print("Agents in system: ")
+        return dict((index, agent) for index, agent in enumerate(self.agents))
+
+    def print_agents():
+      print("Agents in system: ")
+      for index, agent in self.list_agents:
+        print(index, agent)
+
+    def list_tickets(self):
+       print("Tickets in system: ")
+       return dict((index, issue) for index, issue in enumerate(self.tickets))
+
+    def print_tickets():
+        print("Tickets in system: ")
+        for index, ticket in self.list_tickets:
+            print(index, ticket)
+    
+    def print_system_state():
         print("Tickets:\n")
         list_tickets()
         print()
