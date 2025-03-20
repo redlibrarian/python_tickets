@@ -41,16 +41,18 @@ def main():
                 print_system_state()
                 option = get_choice()
             case 4:
-                ts.toggle_ticket_status()
-                break
+                ts.list_tickets()
+                ticket = ts.tickets[int(input("Enter ticket #: "))]
+                ticket.toggle()
+                option = get_choice()
             case 5:
-                ts.add_note_to_ticket()
+                # add note to ticket
                 break
             case 6:
-                ts.list_agents()
+                print(ts.list_agents())
                 option = get_choice()
             case 7: 
-                ts.list_tickets()
+                print(ts.list_tickets())
                 option = get_choice()
             case 9: 
                 break
