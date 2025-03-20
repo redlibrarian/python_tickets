@@ -26,13 +26,13 @@ def main():
 
     while option != 9:
         match option:
-            case 1:
+            case 1: # Create agent
                 create(ts, "agent")
                 option = get_choice()
-            case 2:
+            case 2: # Create ticket
                 create(ts, "ticket")
                 option = get_choice()
-            case 3:
+            case 3: # Assign ticket
                 print_system_state()
                 agent = ts.agents[int(input("Enter agent #: "))]
                 ticket = ts.tickets[int(input("Enter ticket #: "))]
@@ -40,25 +40,27 @@ def main():
                 print("Updated assignments:\n")
                 print_system_state()
                 option = get_choice()
-            case 4:
+            case 4: # Close/reopen ticket
                 ts.list_tickets()
                 ticket = ts.tickets[int(input("Enter ticket #: "))]
                 ticket.toggle()
                 option = get_choice()
-            case 5:
+            case 5: # Add note to ticket
                 print(ts.list_tickets())
                 ticket = int(input("Enter ticket #: "))
                 note = input("Enter note: ")
                 ts.tickets[ticket].add_note(note)
                 print(ts.tickets[ticket].fetch_notes())
                 option = get_choice()
-            case 6:
+            case 6: # List agents
+                print("Agents in system: ")
                 print(ts.list_agents())
                 option = get_choice()
-            case 7: 
+            case 7: # List tickets
+                print("Ticket in system: ")
                 print(ts.list_tickets())
                 option = get_choice()
-            case 9: 
+            case 9: # Exit
                 break
             case _:
                 print("Invalid choice.")
