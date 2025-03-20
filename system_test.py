@@ -31,3 +31,4 @@ def test_toggle_status():
     ts.tickets[0].toggle()
     assert ts.tickets[0].status == "open"
 
+    

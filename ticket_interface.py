@@ -46,8 +46,12 @@ def main():
                 ticket.toggle()
                 option = get_choice()
             case 5:
-                # add note to ticket
-                break
+                print(ts.list_tickets())
+                ticket = int(input("Enter ticket #: "))
+                note = input("Enter note: ")
+                ts.tickets[ticket].add_note(note)
+                print(ts.tickets[ticket].fetch_notes())
+                option = get_choice()
             case 6:
                 print(ts.list_agents())
                 option = get_choice()

@@ -14,7 +14,7 @@ class Ticket:
   def fetch_notes(self):
     note_strings = {index: note for index, note in enumerate(self.notes)}
     return note_strings
-
+    
   def add_note(self, note):
     self.notes.append(note)
 

@@ -29,13 +29,10 @@ class TicketSystem:
         print("Tickets in system: ")
         for index, ticket in self.list_tickets:
             print(index, ticket)
-    
+
+
     def assign_ticket(self, agent, ticket):
         agent.assign_ticket(ticket)
 
-    def toggle_ticket_status():
-        print("Changing ticket status to...")
 
-    def add_note_to_ticket():
-        print("Adding note to ticket...")
 
