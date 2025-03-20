@@ -22,3 +22,13 @@ def test_assign_ticket():
   assert len(ts.agents[0].tickets) == 0
   ts.assign_ticket(ts.agents[0], ts.tickets[0])
   assert len(ts.agents[0].tickets) == 1
+
+def test_toggle_status():
+    ts.create_ticket("Attila the Hun", "Horse stopped running.")
+    assert ts.tickets[0].status == "open"
+    ts.tickets[0].toggle()
+    assert ts.tickets[0].status == "closed"
+    ts.tickets[0].toggle()
+    assert ts.tickets[0].status == "open"
+
+    
