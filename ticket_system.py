@@ -49,20 +49,21 @@ class TicketSystem:
         for index, ticket in self.list_tickets:
             print(index, ticket)
     
-    def print_system_state():
+    def print_system_state(self):
         print("Tickets:\n")
-        list_tickets()
+        self.list_tickets()
         print()
         print("Agents:\n")
-        list_agents()
+        self.list_agents()
 
-    def assign_ticket():
-        display_system_state()
-        ticket = int(input("Enter ticket #: "))
-        agent = int(input("Enter agent #: "))
-        agents[agent].assign_ticket(tickets[ticket])
+    def assign_ticket(self, agent, ticket):
+        self.print_system_state()
+        if not agent and not ticket:
+            agent = self.agents[int(input("Enter agent #: "))]
+            ticket = self.ticket[int(input("Enter ticket #: "))]
+        agent.assign_ticket(ticket)
         print("Updated assignments:\n")
-        display_system_state()
+        self.print_system_state()
 
     def toggle_ticket_status():
         print("Changing ticket status to...")
